@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#121212">
+  <meta name="color-scheme" content="dark">
+  <title>Lucas Ma Famg | Links</title>
+  <meta name="description" content="Links do Lucas Ma Famg na Liga da IA: Imersão Agentes de IA de Verdade, grupo gratuito no WhatsApp e biblioteca de materiais.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lucas Ma Famg | Liga da IA">
+  <meta property="og:description" content="IA prática pra você usar hoje, sem frescura.">
+  <meta property="og:image" content="fotos/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="fotos/logo_simbol.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    /* Liga da IA · modo escuro (caderno de direção visual v02) */
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            liga: {
+              'page': '#121212',
+              'panel': '#1C1C1C',
+              'text': '#EDEDED',
+              'muted': '#B8B8B8',
+              'divider': '#393939',
+              'jade': '#1DBF85',
+              'selection': '#173329',
+              'panel-soft': '#19211E',
+              'panel-feature': '#10291F',
+            }
+          },
+          fontFamily: {
+            sans: ['"League Spartan"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .link-btn {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      border-radius: 16px;
+      padding: 20px 24px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, filter 0.25s ease;
+      text-decoration: none;
+      overflow: hidden;
+    }
+
+    .link-btn:hover { transform: translateY(-2px); }
+
+    .link-btn:focus-visible {
+      outline: 3px solid var(--liga-text);
+      outline-offset: 4px;
+    }
+
+    .link-btn .btn-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-right: 16px;
+    }
+
+    .link-btn .btn-arrow {
+      margin-left: auto;
+      padding-left: 12px;
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+    }
+
+    .link-btn:hover .btn-arrow { transform: translateX(4px); }
+
+    /* Painel Jade (escuro): próximo passo / convite */
+    .btn-whatsapp,
+    .btn-library {
+      background: var(--liga-panel-feature);
+      border: 1px solid color-mix(in srgb, var(--liga-jade) 40%, var(--liga-panel-feature));
+      color: var(--liga-text);
+    }
+
+    .btn-whatsapp:hover,
+    .btn-library:hover { border-color: var(--liga-jade); }
+
+    .btn-whatsapp .btn-icon,
+    .btn-library .btn-icon {
+      background: var(--liga-selection);
+      color: var(--liga-jade);
+    }
+
+    .btn-whatsapp .btn-sub,
+    .btn-library .btn-sub { color: var(--liga-muted); }
+
+    /* Card de destaque: Imersão (Jade com texto #121212) */
+    .card-black {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      width: 100%;
+      min-height: 210px;
+      padding: 26px 24px 22px;
+      border-radius: 18px;
+      background: var(--liga-jade);
+      color: var(--liga-page);
+      text-decoration: none;
+      overflow: hidden;
+      transition: transform 0.25s ease, filter 0.25s ease;
+    }
+
+    .card-black:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+    }
+
+    .card-black:focus-visible {
+      outline: 3px solid var(--liga-text);
+      outline-offset: 4px;
+    }
+
+    .card-black .orbit {
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      right: -50px;
+      top: -50px;
+      border: 1px solid rgba(18, 18, 18, 0.16);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .card-black .orbit::before {
+      content: "";
+      position: absolute;
+      inset: 28px;
+      border: 1px solid rgba(18, 18, 18, 0.16);
+      border-radius: 50%;
+    }
+
+    .card-black .orbit::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      left: 30px;
+      top: 78px;
+      border-radius: 50%;
+      background: var(--liga-page);
+    }
+
+    .card-black .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      align-self: flex-start;
+      background: var(--liga-page);
+      color: var(--liga-jade);
+      border-radius: 99px;
+      padding: 5px 12px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .card-black h2 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+    }
+
+    .card-black .card-sub {
+      font-size: 0.95rem;
+      font-weight: 500;
+      line-height: 1.35;
+      max-width: 30ch;
+      color: color-mix(in srgb, var(--liga-page) 82%, var(--liga-jade));
+    }
+
+    .card-black .card-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid rgba(18, 18, 18, 0.18);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .card-black .card-date,
+    .card-black .card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-black .card-cta svg { transition: transform 0.25s ease; }
+    .card-black:hover .card-cta svg { transform: translateX(4px); }
+
+    /* Sobre: painel de contraste do modo escuro */
+    .about {
+      background: var(--liga-panel);
+      border: 1px solid var(--liga-divider);
+      border-radius: 18px;
+      padding: 24px;
+    }
+
+    .about-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .about-text {
+      font-size: 0.95rem;
+      font-weight: 400;
+      line-height: 1.55;
+      color: var(--liga-muted);
+    }
+
+    .about-text + .about-text { margin-top: 10px; }
+
+    .about-text strong {
+      color: var(--liga-text);
+      font-weight: 600;
+    }
+
+    .about-text a {
+      color: var(--liga-jade);
+      font-weight: 600;
+      text-decoration: underline;
+      text-decoration-color: color-mix(in srgb, var(--liga-jade) 45%, transparent);
+      text-underline-offset: 3px;
+      transition: text-decoration-color 0.2s ease;
+    }
+
+    .about-text a:hover { text-decoration-color: var(--liga-jade); }
+
+    .about-text a:focus-visible {
+      outline: 2px solid var(--liga-text);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    .avatar-ring {
+      padding: 3px;
+      background: linear-gradient(135deg, var(--liga-jade), var(--liga-selection));
+      border-radius: 50%;
+    }
+
+    .avatar-inner {
+      width: 124px;
+      height: 124px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--liga-panel);
+      border: 3px solid var(--liga-page);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (min-width: 1024px) {
+      .avatar-inner {
+        width: 156px;
+        height: 156px;
+      }
+
+      .card-black { min-height: 240px; padding: 30px 28px 24px; }
+      .card-black h2 { font-size: 2.2rem; }
+    }
+
+    .fade-in {
+      animation: fadeInUp 0.7s cubic-bezier(0.23, 1, 0.32, 1) both;
+    }
+
+    .fade-in:nth-child(1) { animation-delay: 0.05s; }
+    .fade-in:nth-child(2) { animation-delay: 0.15s; }
+    .fade-in:nth-child(3) { animation-delay: 0.25s; }
+    .fade-in:nth-child(4) { animation-delay: 0.35s; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in { animation: none; }
+      .animate-pulse-dot { animation: none; }
+    }
+  </style>
+</head>
+
+<body class="bg-liga-page text-liga-text font-sans antialiased min-h-screen overflow-x-hidden bg-cosmic relative">
+
+  <!-- Three.js Particles -->
+  <div id="dotted-surface" class="pointer-events-none fixed inset-0 overflow-hidden z-0"></div>
+
+  <!-- Glows -->
+  <div class="glow-jade" style="top: -80px; right: -100px; z-index: 1;"></div>
+  <div class="glow-jade" style="bottom: 5%; left: -150px; opacity: 0.04; z-index: 1;"></div>
+
+  <!-- Main Container -->
+  <main class="relative z-10 min-h-screen flex flex-col items-center justify-center px-5 py-16 lg:px-10">
+    <div
+      class="w-full max-w-[420px] lg:max-w-[980px] flex flex-col items-center lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-x-16 lg:items-start">
+
+      <!-- Coluna esquerda (PC): perfil + sobre -->
+      <div class="w-full flex flex-col items-center lg:items-start lg:sticky lg:top-16">
+
+        <!-- Profile -->
+        <div class="fade-in flex flex-col items-center lg:items-start mb-8">
+          <div class="avatar-ring mb-5">
+            <div class="avatar-inner">
+              <picture>
+                <source srcset="fotos/lucas.webp" type="image/webp">
+                <img src="fotos/lucas.jpg" alt="Lucas Ma Famg" width="480" height="480"
+                  class="w-full h-full object-cover"
+                  onerror="this.style.display='none'; this.closest('.avatar-inner').innerHTML='<span style=\'font-size:2rem\'>🤖</span>'">
+              </picture>
+            </div>
+          </div>
+
+          <div
+            class="inline-flex items-center gap-2 bg-liga-selection rounded-full px-4 py-1.5 text-xs font-semibold text-liga-jade uppercase tracking-[0.12em] mb-4">
+            <div class="w-1.5 h-1.5 bg-liga-jade rounded-full animate-pulse-dot"></div>
+            Liga da IA
+          </div>
+
+          <h1 class="text-[1.75rem] lg:text-[2.6rem] font-bold tracking-[-0.04em] text-center lg:text-left leading-none mb-2 lg:mb-3">
+            Lucas Ma Famg<span class="text-liga-jade" aria-hidden="true">.</span>
+          </h1>
+          <p class="text-[15px] lg:text-[17px] font-light text-liga-muted text-center lg:text-left leading-relaxed max-w-[300px] lg:max-w-[340px]">
+            IA prática pra você usar hoje, sem frescura.
+          </p>
+        </div>
+
+        <!-- Sobre o Lucas (PC) -->
+        <section class="fade-in about w-full hidden lg:block" aria-labelledby="sobre-titulo-desktop">
+          <h2 id="sobre-titulo-desktop" class="about-title">Sobre o Lucas<span class="text-liga-jade" aria-hidden="true">.</span></h2>
+          <p class="about-text">Engenheiro mecânico com passagem pelo exterior desenvolvendo aplicações em <strong>robótica</strong>. Desde 2022 trabalha com dados e desenvolvimento de software, e é co-fundador de dois SaaS, entre eles o <a href="https://site.dinno.chat/" target="_blank" rel="noopener noreferrer">Dinno.chat</a>.</p>
+          <p class="about-text">Na Liga da IA, junta engenharia e produto pra mostrar como colocar IA pra trabalhar de verdade na rotina.</p>
+        </section>
+      </div>
+
+      <!-- Coluna direita (PC) / sequência (mobile): links -->
+      <div class="w-full flex flex-col">
+
+        <!-- Botões -->
+        <div class="fade-in w-full flex flex-col gap-4">
+
+          <!-- Card 1: Imersão · Agentes de IA de Verdade -->
+          <a href="https://blackfriday.ligadaia.com/?utm_source=instagram-lucas&utm_medium=bio&utm_campaign=black-friday"
+            target="_blank" rel="noopener noreferrer" class="card-black fade-in">
+            <span class="orbit" aria-hidden="true"></span>
+            <span class="eyebrow">Black Friday</span>
+            <h2>Agentes de IA de Verdade.</h2>
+            <p class="card-sub">Seu time de agentes de IA no WhatsApp em 30 minutos.</p>
+            <div class="card-foot">
+              <span class="card-date">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                Imersão · 28/11
+              </span>
+              <span class="card-cta">Conferir
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- Botão 2: Grupo WhatsApp -->
+          <a href="https://grupo.ligadaia.com/" target="_blank" rel="noopener noreferrer"
+            class="link-btn btn-whatsapp fade-in">
+            <div class="btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                </path>
+              </svg>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-base font-bold leading-tight">Grupo Gratuito no WhatsApp</span>
+              <span class="btn-sub text-xs font-normal mt-0.5">Skills de IA, conteúdo prático e networking</span>
+            </div>
+            <div class="btn-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+          </a>
+
+          <!-- Botão 3: Biblioteca de materiais -->
+          <a href="https://materiais.ligadaia.com" target="_blank" rel="noopener noreferrer"
+            class="link-btn btn-library fade-in">
+            <div class="btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-base font-bold leading-tight">Biblioteca de Materiais Grátis</span>
+              <span class="btn-sub text-xs font-normal mt-0.5">Guias e materiais práticos de IA para baixar</span>
+            </div>
+            <div class="btn-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- Sobre o Lucas (mobile) -->
+        <section class="fade-in about mt-8 w-full lg:hidden" aria-labelledby="sobre-titulo">
+          <h2 id="sobre-titulo" class="about-title">Sobre o Lucas<span class="text-liga-jade" aria-hidden="true">.</span></h2>
+          <p class="about-text">Engenheiro mecânico com passagem pelo exterior desenvolvendo aplicações em <strong>robótica</strong>. Desde 2022 trabalha com dados e desenvolvimento de software, e é co-fundador de dois SaaS, entre eles o <a href="https://site.dinno.chat/" target="_blank" rel="noopener noreferrer">Dinno.chat</a>.</p>
+          <p class="about-text">Na Liga da IA, junta engenharia e produto pra mostrar como colocar IA pra trabalhar de verdade na rotina.</p>
+        </section>
+
+        <!-- Footer -->
+        <div class="fade-in mt-10 w-full border-t border-liga-divider pt-6 text-center lg:text-left">
+          <p class="text-xs font-light text-liga-muted">&copy; 2026 Liga da IA</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

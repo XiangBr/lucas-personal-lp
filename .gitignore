@@ -1,0 +1,5 @@
+# foto original em alta (7.8 MB) — o site usa public/fotos/lucas.{webp,jpg}
+/lucas.png
+node_modules/
+.wrangler/
+.dev.vars
